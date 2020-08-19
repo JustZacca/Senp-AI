@@ -1,0 +1,5 @@
+RedirectMatch 403 /\..*$
+<Files ~ "\.php$">  
+Order Allow,Deny
+Deny from All
+</Files>

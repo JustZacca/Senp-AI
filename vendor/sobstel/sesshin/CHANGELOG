@@ -1,0 +1,23 @@
+# Change Log
+
+## [Unreleased][unreleased]
+
+## [1.2.0]
+
+### Added
+- put, push, forget and flash data [yabafinet]
+
+## [1.1.1]
+
+### Changed
+- Session::set/getEventEmitter() renamed to set/getEmitter()
+### Fixed
+- Misc code quality improvements [rkrx]
+
+## [1.1.0]
+
+### Changed
+- General refactoring related to adhering to thephpleague standards (new
+  store interface, doctrine cache store adapter, league/event over in-built
+  listeners, following psr-like formatting, test against 5.6, etc etc)
+  https://github.com/sobstel/sesshin/compare/1.0.0...v1.1.0
