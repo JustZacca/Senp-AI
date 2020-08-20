@@ -126,9 +126,25 @@ class users
             $link = "https://myanimelist.net/animelist/".$this->getMAL()."/load.json?";
             $filename =  $this->path.$this->UID.".json";
             file_put_contents($filename, fopen($link, 'r'));
+            $this->correctList();
+
         } catch (Exception $var) {
             return false;
         }
+    }
+    public function listExist()
+    {
+        return file_exists($this->path.$this->UID.".json");
+    }
+
+    public function deletList()
+    {
+        unlink($this->path.$this->UID.".json");
+    }
+
+    public function clistExist()
+    {
+        return file_exists($this->path.$this->UID."_clean.json");
     }
 
     public function correctList()

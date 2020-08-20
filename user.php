@@ -20,7 +20,35 @@ $users->login("Zasser", "11221348Was");
     </div>
 </div>
 <br>
-<span class="badge badge-primary">Check that everything is ready.</span>
+<p> Check that everything is ready:
+<?php
+  if ($users->listExist()) {
+      if (!$users->clistExist()) {
+          ?>
+    <div class="alert alert-warning" role="alert">
+
+        Your MAL is ready, but for som problem has not been cleaned
+    </div>
+    <a href="take_list.php?action=2"><button type="button" class="btn btn-primary">Prepare list</button></a>
+<?php
+      } else {
+          ?>
+    <div class="alert alert-success" role="alert">
+
+        Your MAL is ready
+    </div>
+    <a href="take_list.php?action=1"><button type="button" class="btn btn-primary">Delete list</button></a>
+<?php
+      }
+  } else {
+      ?>
+    <div class="alert alert-danger" role="alert">
+  Your MAL is not on our servers, press the button (this could take a while)
+</div>
+<a href="take_list.php?action=0"><button type="button" class="btn btn-danger">Generate list</button></a>
+    <?php
+  }
+?>
 
 
 <?php
