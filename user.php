@@ -20,8 +20,8 @@ $users->login("Zasser", "11221348Was");
     </div>
 </div>
 <br>
-<br>
 <span class="badge badge-primary">Check that everything is ready.</span>
+
 
 <?php
 require __DIR__ . '/assets/html/footer.html';
