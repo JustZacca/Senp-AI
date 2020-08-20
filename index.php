@@ -12,14 +12,18 @@ $users->login("Zasser", "11221348Was");
         <li class="breadcrumb-item active" aria-current="page">Home</li>
     </ol>
 </nav>
-<h1 class="display-4">Senp-AI</h1>
-<p class="lead">
-    Artificial Senpai
-</p>
-<p class="text-justify">
-    Senp-AI is a web app that uses machine learning to understand your anime taste and suggest some titles. It's based
-    upon MyAnimeList and AniList databases and uses your MAL as a dataset for the ML algorithm.
-</p>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Senp-AI</h1>
+        <p class="lead">
+            Artificial Senpai
+        </p>
+        <p class="lead">Senp-AI is a web app that uses machine learning to understand your anime taste and suggest some
+            titles. It's based
+            upon MyAnimeList and AniList databases and uses your MAL as a dataset for the ML algorithm.</p>
+    </div>
+</div>
+
 <dl class="row">
     <dt class="col-sm-3">Why?</dt>
     <dd class="col-sm-9">I'm just bored</dd>
@@ -42,9 +46,9 @@ $users->login("Zasser", "11221348Was");
         you use it the more it improves, in the appropriate section say to the AI ​​when its prediction is wrong, so in
         the future it will avoid making mistakes.</dd>
 
-        <dt class="col-sm-3 text-truncate">But really, Why?</dt>
+    <dt class="col-sm-3 text-truncate">But really, Why?</dt>
     <dd class="col-sm-9">
-    If you insist, I'll tell you: I like money.</dd>
+        If you insist, I'll tell you: I like money.</dd>
 </dl>
 <?php
 require __DIR__ . '/assets/html/footer.html';
