@@ -12,7 +12,7 @@ $users->login("Zasser", "11221348Was");
         <li class="breadcrumb-item active" aria-current="page">Home</li>
     </ol>
 </nav>
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron">
     <div class="container">
         <h1 class="display-4">Senp-AI</h1>
         <p class="lead">

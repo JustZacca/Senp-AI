@@ -13,6 +13,13 @@ $users->login("Zasser", "11221348Was");
     <li class="breadcrumb-item active" aria-current="page">Generate List</li>
   </ol>
 </nav>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Generate list</h1>
+        <p class="lead">
+            Use this utility to generate your suggest list: apply some filters, otherwise the AI will suggest anything, even Hentai or strange stuff</p>
+    </div>
+</div>
 
 
 

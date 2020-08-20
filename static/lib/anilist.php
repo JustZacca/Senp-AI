@@ -1,9 +1,16 @@
 <?php
+use Jikan\Jikan;
+
 class AniList
 {
     public $anime;
+    public $jikan;
+    public $jani;
+
     public function query($id)
     {
+        $this->jikan = new Jikan;
+        $this->jani = $this->jikan->Anime($id);
         $query = '
             query ($id: Int) { # Define which variables will be used in the query (id)
             Media (idMal: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
@@ -41,12 +48,22 @@ class AniList
 
     public function getTitle()
     {
-        return $this->anime['data']['Media']['title']['english'];
+        if ($this->anime['data']['Media']['title']['english'] == "") {
+            return $this->jani->getTitle();
+        } else {
+            return $this->anime['data']['Media']['title']['english'];
+        }
     }
 
     public function getGenere()
     {
         return implode(", ", $this->anime['data']['Media']['genres']);
+
+        if (implode(", ", $this->anime['data']['Media']['genres']) == "") {
+            return implode(", ",$this->jani->getGenres());
+        } else {
+            return implode(", ", $this->anime['data']['Media']['genres']);
+        }
     }
 
     public function getSource()

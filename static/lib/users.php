@@ -68,7 +68,7 @@ class users
         return $this->MAL;
     }
 
-    public function getUsername($UID)
+    public function getUsername()
     {
         $query = $this->connection->newQuery();
         $query->select(['Username']);
@@ -127,7 +127,6 @@ class users
             $filename =  $this->path.$this->UID.".json";
             file_put_contents($filename, fopen($link, 'r'));
             $this->correctList();
-
         } catch (Exception $var) {
             return false;
         }
@@ -221,6 +220,11 @@ class users
     public function userList()
     {
         return $this->path.$this->UID."_clean.json";
+    }
+
+    public function suggestList()
+    {
+        return $this->path.$this->UID."_List.json";
     }
 
     public function randAnime()

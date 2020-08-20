@@ -20,7 +20,7 @@ $users->login("Zasser", "11221348Was");
     </div>
 </div>
 <br>
-<p> Check that everything is ready:
+<p> Hi <?php  echo $users->getUsername()  ?> <br>Check that everything is ready:
 <?php
   if ($users->listExist()) {
       if (!$users->clistExist()) {
