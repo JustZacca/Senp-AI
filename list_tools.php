@@ -48,12 +48,11 @@ if (file_exists($users->suggestList())) {
     </tbody>
 </table>
 <?php
-}
-else {
-  ?>
-  <div class="alert alert-danger" role="alert">
-    
-there is something wrong with your suggestion list. Are you sure you created it?
+} else {
+    ?>
+<div class="alert alert-danger" role="alert">
+
+    There is something wrong with your suggestion list. Are you sure you created it?
 </div>
 <img src="./assets/img/error.jpg" class="img-fluid" alt="Responsive image">
 <?php

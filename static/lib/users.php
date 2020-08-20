@@ -195,6 +195,10 @@ class users
             return in_array($ID, json_decode(file_get_contents($this->path.$this->UID."_ID.json"), true));
         }
     }
+    public function suggestCount()
+    {
+        return count(json_decode(file_get_contents($this->suggestList()),true));
+    }
 
     public function Status($id)
     {

@@ -21,7 +21,7 @@ $users->login("Zasser", "11221348Was");
 </div>
 <br>
 <p> Hi <?php  echo $users->getUsername()  ?> <br>Check that everything is ready:
-<?php
+    <?php
   if ($users->listExist()) {
       if (!$users->clistExist()) {
           ?>
@@ -30,7 +30,7 @@ $users->login("Zasser", "11221348Was");
         Your MAL is ready, but for som problem has not been cleaned
     </div>
     <a href="take_list.php?action=2"><button type="button" class="btn btn-primary">Prepare list</button></a>
-<?php
+    <?php
       } else {
           ?>
     <div class="alert alert-success" role="alert">
@@ -38,19 +38,19 @@ $users->login("Zasser", "11221348Was");
         Your MAL is ready
     </div>
     <a href="take_list.php?action=1"><button type="button" class="btn btn-primary">Delete list</button></a>
-<?php
+    <?php
       }
   } else {
       ?>
     <div class="alert alert-danger" role="alert">
-  Your MAL is not on our servers, press the button (this could take a while)
-</div>
-<a href="take_list.php?action=0"><button type="button" class="btn btn-danger">Generate list</button></a>
+        Your MAL is not on our servers, press the button (this could take a while)
+    </div>
+    <a href="take_list.php?action=0"><button type="button" class="btn btn-danger">Generate list</button></a>
     <?php
   }
 ?>
 
 
-<?php
+    <?php
 require __DIR__ . '/assets/html/footer.html';
 ?>
