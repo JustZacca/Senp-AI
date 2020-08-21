@@ -24,24 +24,25 @@ $users->login("Zasser", "11221348Was");
 
 <?php
 if (file_exists($users->suggestList())) {
-   if(!$users->listExist())
-{
-  ?>
+    if (!$users->listExist()) {
+        ?>
 <div class="alert alert-danger" role="alert">
 
 
-    
-You can't use this section yet! Go to user and import your MAL, without this Senp-AI you will never know what to suggest!
+
+    You can't use this section yet! Go to user and import your MAL, without this <b>Senp-AI</b> you will never know what
+    to
+    suggest!
 
 </div>
 <?php
-}
-else {
-    ?>
-  
+    } else {
+        ?>
+
 <div class="alert alert-primary" role="alert">
 
-    Looks like you already have a list of suggestions. Use this section to regenerate or increase it.
+    Looks like you already have a list of suggestions. Use this section to regenerate or increase it. <br>MAX 20
+    Elements per list.
 </div>
 <div class="float-right">
     <a href="./list_tools.php">
@@ -53,28 +54,26 @@ else {
 <br>
 <br>
 <?php
-}
-}
-else if (!file_exists($users->suggestList()))
-{
-?>
+    }
+} elseif (!file_exists($users->suggestList())) {
+    ?>
 <div class="alert alert-warning" role="alert">
 
 
-    You have no list, get ready to generate it! You will need to add some filters to the generation, in order to make
-    the work of Senp-AI easier
+    You don't have any list, get ready to generate it! I hopw <b> Senp-AI</b> will do a good work! <br>MAX 20 Elements
+    per list.
 </div>
 <?php
 }
- if(file_exists($users->suggestList()) && $users->listExist()) {
-      ?>
+ if (file_exists($users->suggestList()) && $users->listExist()) {
+     ?>
 <div class="accordion" id="accordionExample">
     <div class="card">
         <div class="card-header" id="headingOne">
             <h2 class="mb-0">
                 <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                     data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <?php echo file_exists($users->suggestList()) ? 'Regenerate' : 'Generate'; ?>
+                    Increase
                 </button>
             </h2>
         </div>
@@ -82,21 +81,38 @@ else if (!file_exists($users->suggestList()))
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
                 <?php
-                    if(file_exists($users->suggestList())) 
-                    {
-                      if($users->suggestCount() == 0)
-                      {
-                        echo "So, you have ended your list, kinda cool tbh.";
-                      }
-                      else 
-                      {
-                        echo "I see thath your list have still ".$users->suggestCount()." items <br> Please, tell Senp-AI wich anime you liked, and wich you didn't, becuase if you don't do it, it could suggest them another time";
-                      }
-                    }
-                    else {
-                      echo "First time? Create some filters, do the AI will to a better prediction." ;
-                    }
-                ?>
+                    if (file_exists($users->suggestList())) {
+                        if ($users->suggestCount() == 0) {
+                            echo "So, you have ended your list, kinda cool tbh.<br>"; ?>
+                <br>
+                <form class="form-inline" action="take_list.php?action=3">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Number of elements to add</label>
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                        <option value=0>Choose...</option>
+                        <?php for ($i = 1; $i <= (20 - $users->suggestCount()); $i++) {
+                                echo "<option value=".$i.">".$i."</option>";
+                            } ?>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary my-1">Increase list</button>
+                </form>
+                <?php
+                        } else {
+                            echo "I see thath your list have still ".$users->suggestCount()." items (Every list can have a maximum of 20 elements) <br>  Please, tell <b>Senp-AI</b> wich anime you liked, and wich you didn't, becuase if you don't do it, it could suggest them another time"; ?>
+                <br>
+                <br>
+                <form class="form-inline" action="take_list.php" method="post">
+                    <input type="hidden" id="action" name="action" value="3">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Number of elements to add</label>
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="num">
+                        <option value=0>Choose...</option>
+                        <?php for ($i = 1; $i <= (20 - $users->suggestCount()); $i++) {
+                                echo "<option value=".$i.">".$i."</option>";
+                            } ?>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary my-1">Increase list</button>
+                </form>
             </div>
         </div>
     </div>
@@ -105,26 +121,46 @@ else if (!file_exists($users->suggestList()))
             <h2 class="mb-0">
                 <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                     data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Increse
+                    <?php echo file_exists($users->suggestList()) ? 'Regenerate' : 'Generate'; ?>
                 </button>
             </h2>
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
                 <?php
-                if($users->suggestCount() >= 20)
-                {
-                  echo "Are you sure about that? You have ".$users->suggestCount()." items on your list, you really need more?";
+                if ($users->suggestCount() >= 1) {
+                    echo "Are you sure about that? You have ".$users->suggestCount()." items on your list, you really want to loose them all? <br><br>"; ?>
+                <form class="form-inline" action="take_list.php" method="post">
+                    <input type="hidden" id="action" name="action" value="4">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Number of elements </label>
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="num">
+                        <option value=0>Choose...</option>
+                        <?php for ($i = 1; $i <= 20 ; $i++) {
+                        echo "<option value=".$i.">".$i."</option>";
+                    } ?>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary my-1">Generate list</button>
+                </form>
+                <?php
+                } elseif (!file_exists($users->suggestList())) {
+                    echo "First time? Kinda cool tbh. <br>"; ?>
+                <form class="form-inline" action="take_list.php" method="post">
+                    <input type="hidden" id="action" name="action" value="4">
+                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Number of elements </label>
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="num">
+                        <option value=0>Choose...</option>
+                        <?php for ($i = 1; $i <= 20 ; $i++) {
+                        echo "<option value=".$i.">".$i."</option>";
+                    } ?>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary my-1">Generate list</button>
+                </form>
+                <?php
                 }
-                else if ($users->suggestCount() <= 20 && $users->suggestCount() > 1 )
-                {
-                  echo "Tell me how many items you want to add to your list, just give me a number, I'll search something I'm sure you'll like";
-                }
-                else if(!file_exists($users->suggestList()))
-                {
-                  echo "Bro, you need to generate your first list before";
-                }
-                ?>
+                        }
+                    } ?>
             </div>
         </div>
     </div>
@@ -142,8 +178,10 @@ else if (!file_exists($users->suggestList()))
             <div class="card-body">
 
                 Here you can delete items from your list. But I advise you not to do this here, rather go to <a
-                    href="./list_tools.php">List Tools</a> and tell Senp-AI that you didn't like the suggestion, so next
-                time it will suggest you better.
+                    href="./list_tools.php">List Tools</a> and tell <b>Senp-AI</b> that you didn't like the suggestion,
+                so next
+                time it will suggest you better.<br> <br>
+                <a href="take_list.php?action=5"><button type="button" class="btn btn-danger">Delete Anyway</button></a>
             </div>
         </div>
     </div>
@@ -151,6 +189,21 @@ else if (!file_exists($users->suggestList()))
 </div>
 
 <?php
-}
+ } else {
+     ?>
+<form class="form-inline" action="take_list.php" method="post">
+    <input type="hidden" id="action" name="action" value="4">
+    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Number of elements </label>
+    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="num">
+        <option value=0>Choose...</option>
+        <?php for ($i = 1; $i <= 20 ; $i++) {
+         echo "<option value=".$i.">".$i."</option>";
+     } ?>
+    </select>
+
+    <button type="submit" class="btn btn-primary my-1">Generate list</button>
+</form>
+<?php
+ }
 require __DIR__ . '/assets/html/footer.html';
 ?>

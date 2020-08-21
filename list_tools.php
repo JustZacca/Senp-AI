@@ -20,7 +20,8 @@ $users->login("Zasser", "11221348Was");
 if (file_exists($users->suggestList())) {
     ?>
 <div class="alert alert-primary" role="alert">
-    Use this section to view the list that Senp-AI has created for you by examining your tastes. Use the button to the
+    Use this section to view the list that <b>Senp-AI</b> has created for you by examining your tastes. Use the button
+    to the
     right of each title to tell the AI ​​if he was right or wrong.
 </div>
 <br>
@@ -40,7 +41,7 @@ if (file_exists($users->suggestList())) {
           $ani->query($anime['ID']);
           echo '<tr>
         <th scope="row">'.$anime['ID'].'</th>
-        <td>'.$ani->getTitle().'</td>
+        <td><a href=https://myanimelist.net/anime/'.$anime['ID'].' target="_blank">'.$ani->getTitle().'</a></td>
         <td>'.$ani->getGenere().'</td>
         <td>'.$ani->getTags().'</td>
       </tr>';
@@ -49,13 +50,13 @@ if (file_exists($users->suggestList())) {
 </table>
 <?php
 } else {
-    ?>
+          ?>
 <div class="alert alert-danger" role="alert">
 
     There is something wrong with your suggestion list. Are you sure you created it?
 </div>
 <img src="./assets/img/error.jpg" class="img-fluid" alt="Responsive image">
 <?php
-}
+      }
 require __DIR__ . '/assets/html/footer.html';
 ?>

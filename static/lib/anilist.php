@@ -60,7 +60,7 @@ class AniList
         return implode(", ", $this->anime['data']['Media']['genres']);
 
         if (implode(", ", $this->anime['data']['Media']['genres']) == "") {
-            return implode(", ",$this->jani->getGenres());
+            return implode(", ", $this->jani->getGenres());
         } else {
             return implode(", ", $this->anime['data']['Media']['genres']);
         }
@@ -84,6 +84,11 @@ class AniList
         return implode(", ", array_map('current', $this->anime['data']['Media']['tags']));
     }
 
+    public function evlTags($id)
+    {
+        $this->query($id);
+        return (count($this->anime['data']['Media']['tags']) > 1) ? true : false;
+    }
     public function is200($id)
     {
         try {

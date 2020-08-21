@@ -3,6 +3,7 @@ use Rubix\ML\Classifiers\NaiveBayes;
 use Rubix\ML\Datasets\Labeled;
 use Rubix\ML\Extractors\JSON;
 use Rubix\ML\Datasets\Unlabeled;
+use Rubix\ML\CrossValidation\Metrics\Accuracy;
 
 class AI
 {
@@ -56,5 +57,19 @@ class AI
             }
         }
         return $list;
+    }
+
+    public function validity()
+    {
+        [$training, $testing] = $this->dataset->randomize()->split(0.8);
+        
+
+        $predictions = $this->estimator->predict($testing);
+
+        $metric = new Accuracy();
+
+        $score = $metric->score($predictions, $testing->labels());
+
+        return $score*100;
     }
 }

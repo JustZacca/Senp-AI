@@ -197,7 +197,7 @@ class users
     }
     public function suggestCount()
     {
-        return count(json_decode(file_get_contents($this->suggestList()),true));
+        return count(json_decode(file_get_contents($this->suggestList()), true));
     }
 
     public function Status($id)
@@ -235,20 +235,24 @@ class users
     {
         $id = rand(1, 100000);
         if ($this->anime->is200($id)) {
-            if ($this->Already_Seen($id)) {
-                return $this->randAnime();
+            if (!$this->Already_Seen($id)) {
+                if ($this->anime->evlTags($id)) {
+                    return $id;
+                } else {
+                    return $this->randAnime();
+                }
             } else {
-                return $id;
+                return $this->randAnime();
             }
         } else {
             return $this->randAnime();
         }
     }
     
-    public function SaveList($list)
+    public function SaveList($list, $f)
     {
         $filename =  $this->path.$this->UID."_List.json";
-        if (file_exists($filename)) {
+        if (file_exists($filename) && $f) {
             $ob = file_get_contents($filename);
             $json = json_decode($ob, true);
             $merge = array_merge($json, $list);
@@ -272,5 +276,9 @@ class users
                 exit();
             }
         }
+    }
+    public function deleteList()
+    {
+        unlink($this->path.$this->UID."_List.json");
     }
 }

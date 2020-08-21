@@ -15,7 +15,10 @@ $users->login("Zasser", "11221348Was");
 </nav>
 
 
-
+<?php
+$ai = new AI($users);
+echo $ai->validity();
+?>
 
 <?php
 require __DIR__ . '/assets/html/footer.html';
