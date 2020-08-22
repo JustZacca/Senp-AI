@@ -85,9 +85,10 @@ if (file_exists($users->suggestList())) {
                         if ($users->suggestCount() == 0) {
                             echo "So, you have ended your list, kinda cool tbh.<br>"; ?>
                 <br>
-                <form class="form-inline" action="take_list.php?action=3">
+                <form class="form-inline" action="take_list.php" method="post">
+                    <input type="hidden" id="action" name="action" value="3">
                     <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Number of elements to add</label>
-                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="num">
                         <option value=0>Choose...</option>
                         <?php for ($i = 1; $i <= (20 - $users->suggestCount()); $i++) {
                                 echo "<option value=".$i.">".$i."</option>";
@@ -121,7 +122,7 @@ if (file_exists($users->suggestList())) {
             <h2 class="mb-0">
                 <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                     data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <?php echo file_exists($users->suggestList()) ? 'Regenerate' : 'Generate'; ?>
+                    <?php echo (file_exists($users->suggestList())) ? 'Regenerate' : 'Generate'; ?>
                 </button>
             </h2>
         </div>
@@ -129,7 +130,7 @@ if (file_exists($users->suggestList())) {
             <div class="card-body">
                 <?php
                 if ($users->suggestCount() >= 1) {
-                    echo "Are you sure about that? You have ".$users->suggestCount()." items on your list, you really want to loose them all? <br><br>"; ?>
+                    echo "Are you sure about that? You have <b>".$users->suggestCount()." items</b> on your list, you really want to loose them all? <br><br>"; ?>
                 <form class="form-inline" action="take_list.php" method="post">
                     <input type="hidden" id="action" name="action" value="4">
                     <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Number of elements </label>
@@ -140,7 +141,7 @@ if (file_exists($users->suggestList())) {
                     } ?>
                     </select>
 
-                    <button type="submit" class="btn btn-primary my-1">Generate list</button>
+                    <button type="submit" class="btn btn-warning my-1">Generate list</button>
                 </form>
                 <?php
                 } elseif (!file_exists($users->suggestList())) {

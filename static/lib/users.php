@@ -156,7 +156,6 @@ class users
             try {
                 $ani = $this->anime;
                 $ani->query($anime['anime_id']);
-                echo $anime['anime_id']," ";
                 $id[$c]['Format'] = $ani->getFormat();
                 $id[$c]['Source'] = $ani->getSource();
                 $id[$c]['Genere'] = $ani->getGenere();
@@ -236,7 +235,7 @@ class users
         $id = rand(1, 100000);
         if ($this->anime->is200($id)) {
             if (!$this->Already_Seen($id)) {
-                if ($this->anime->evlTags($id)) {
+                if ($this->anime->evlTags($id) > 0) {
                     return $id;
                 } else {
                     return $this->randAnime();
@@ -252,11 +251,13 @@ class users
     public function SaveList($list, $f)
     {
         $filename =  $this->path.$this->UID."_List.json";
-        if (file_exists($filename) && $f) {
-            $ob = file_get_contents($filename);
-            $json = json_decode($ob, true);
-            $merge = array_merge($json, $list);
-            file_put_contents($filename, json_encode($merge));
+        if (file_exists($filename) && $f ) {
+            
+                $ob = file_get_contents($filename);
+                $json = json_decode($ob, true);
+                $merge = array_merge($json, $list);
+                file_put_contents($filename, json_encode($merge));
+            
         } else {
             file_put_contents($filename, json_encode($list));
         }
@@ -280,5 +281,26 @@ class users
     public function deleteList()
     {
         unlink($this->path.$this->UID."_List.json");
+    }
+
+    public function CorrectAI($status,$anid)
+    {
+        try {
+            $ani = $this->anime;
+            $ani->query($anid);
+            $id[0]['Format'] = $ani->getFormat();
+            $id[0]['Source'] = $ani->getSource();
+            $id[0]['Genere'] = $ani->getGenere();
+            $id[0]['Tag'] = $ani->getTags();
+            $id[0]['Status'] = $this->Status($status);
+            $filename =  $this->path.$this->UID."_clean.json";
+
+            $ob = file_get_contents($filename);
+            $json = json_decode($ob, true);
+            $merge = array_merge($json, $id);
+            file_put_contents($filename, json_encode($merge));
+            $this->deleteFromList($anid);
+        } catch (Exception $var) {
+        }
     }
 }

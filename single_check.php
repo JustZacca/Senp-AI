@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require __DIR__ . '/assets/html/head.html';
 set_time_limit(360);
 require __DIR__ . '/vendor/autoload.php';
@@ -16,8 +19,11 @@ $users->login("Zasser", "11221348Was");
 
 
 <?php
-$ai = new AI($users);
-echo $ai->validity();
+$ani = new AniList();
+$ani->query(39587);
+echo $ani->getTags();
+print_r($ani->evlTags(39587));
+
 ?>
 
 <?php
