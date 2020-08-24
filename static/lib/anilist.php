@@ -12,10 +12,10 @@ class AniList
     public $driver;
     public $connection;
     public $id;
-
-
+    public $search_result;
     public function __construct()
     {
+        $this->jikan = new Jikan;
         $this->driver = new Mysql([
             'database' => 'senp_AI',
             'username' => 'remote',
@@ -31,7 +31,6 @@ class AniList
         $this->id = $id;
         if ($this->isincache()) {
         } else {
-            $this->jikan = new Jikan;
             $this->jani = $this->jikan->Anime($id);
             $query = '
             query ($id: Int) { # Define which variables will be used in the query (id)
@@ -234,6 +233,90 @@ class AniList
         } catch (Exception $var) {
             return false;
         }
+    }
+
+    public function search($title)
+    {
+        $query = '
+        query ($id: Int, $page: Int, $perPage: Int, $search: String) {
+        Page (page: $page, perPage: $perPage) {
+            pageInfo {
+            total
+            currentPage
+            lastPage
+            hasNextPage
+            perPage
+            }
+            media (id: $id, search: $search) {
+            id
+            title {
+                english
+            }
+            externalLinks {
+            id
+            url
+            site
+            } 
+            }
+        }
+        }
+        ';
+
+        $variables = [
+            "search" => $title,
+            "page" => 1,
+            "perPage" => 50
+        ];
+
+        $http = new GuzzleHttp\Client;
+        $response = $http->post('https://graphql.anilist.co', [
+            'json' => [
+                'query' => $query,
+                'variables' => $variables,
+            ]
+        ]);
+        return $this->search_result = json_decode($response->getBody(), true);
+    }
+
+    public function search_count()
+    {
+        return $this->search_result['data']['Page']['pageInfo']['total'];
+    }
+
+    public function error_title($id)
+    {
+        
+        try {
+            $this->jani = $this->jikan->Anime($id);
+            return $this->jani->getUrl();
+        }catch (Exception $var) {
+            return false;
+        }
+
+    }
+
+    public function show_result()
+    {
+        $out = '<div class="list-group">';
+        foreach($this->search_result['data']['Page']['media'] as $sr)
+        {
+            
+            if(!$sr['title']['english'] == "" && $this->error_title($sr['id']))
+            {
+                try {
+                    $out .=  '<a href='.$this->jani->getUrl().' target="_blank" class="list-group-item list-group-item-action">'.$sr['title']['english'].'</a>';    
+                }  catch (Exception $var) {
+                    continue;
+                }
+            }
+           
+        }
+        return $out;
+    }
+
+    public function jikanSearch($title)
+    {
+        return $this->jani = $this->jikan->AnimeSearch($title);
     }
 }
 ?>

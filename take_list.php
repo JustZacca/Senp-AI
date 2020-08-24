@@ -39,8 +39,8 @@ switch ($action) {
         header("Location: generate_list.php");
         break;
     case 6:
-            $users->CorrectAI($_GET['status'],$_GET['ID']);
-            header("Location: list_tools.php");
-            die();
+        $users->CorrectAI($_GET['status'],$_GET['ID']);
+        header("Location: list_tools.php");
+        die();
         break;
 }

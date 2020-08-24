@@ -1,4 +1,5 @@
 <?php
+use Jikan\Jikan;
 require __DIR__ . '/assets/html/head.html';
 set_time_limit(360);
 require __DIR__ . '/vendor/autoload.php';
@@ -6,6 +7,7 @@ require __DIR__ . '/static/Autoloader.php';
 require __DIR__ . '/assets/html/menu.html';
 $users = new Users();
 $ani = new AniList();
+$jikan = new Jikan;
 $users->login("Zasser", "11221348Was");
 ?>
 <nav aria-label="breadcrumb">
@@ -31,25 +33,31 @@ if (file_exists($users->suggestList()) && $users->suggestCount() != 0) {
     right of each title to tell the AI ​​if he was right or wrong.
 </div>
 <br>
-<table class="table table-dark">
+<div class="container">
+<table class="table table-bordered table-responsive table-dark">
     <thead>
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Title</th>
-            <th scope="col">Genre</th>
-            <th scope="col">Tags</th>
             <th scope="col"></th>
+            <th scope="col">Genre</th>
+            
+            <th scope="col">Synopsis</th>
+            <th scope="col">Drop</th>
         </tr>
     </thead>
     <tbody>
         <?php
       foreach (json_decode(file_get_contents($users->suggestList()), true) as $anime) {
           $ani->query($anime['ID']);
+          $jani = $jikan->Anime($anime['ID']);
           echo '<tr>
         <th scope="row">'.$anime['ID'].'</th>
         <td><a href=https://myanimelist.net/anime/'.$anime['ID'].' target="_blank">'.$ani->getTitle().'</a></td>
+        <td><img src="'.$jani->getImageUrl().'" alt="..." width="1500px" class="img-fluid"></td>
         <td>'.$ani->getGenere().'</td>
-        <td>'.$ani->getTags().'</td>
+
+        <td>'.$jani->getSynopsis().'</td>
         <td> <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups"> <div class="btn-group mr-2" role="group" aria-label="First group"> <a href="take_list.php?action=6&status=4&ID='.$anime['ID'].'"><button type="button" class="btn btn-danger"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
         <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -60,6 +68,9 @@ if (file_exists($users->suggestList()) && $users->suggestCount() != 0) {
       } ?>
     </tbody>
 </table>
+</div>
+<br>
+<br>
 <?php
 } else if( $users->suggestCount() == 0) {
     ?>

@@ -18,12 +18,15 @@ $users->login("Zasser", "11221348Was");
         <p class="lead">
             Artificial Senpai
         </p>
-        <p class="lead">Senp-AI is a web app that uses machine learning to understand your anime taste and suggest some
-            titles. It's based
-            upon MyAnimeList and AniList databases and uses your MAL as a dataset for the ML algorithm.</p>
     </div>
-</div>
 
+<div class="text-center">
+  <img src="./assets/img/cowboy-bebop.gif"  class="img-fluid" alt="...">  
+  <br>
+</div>
+  </div>
+  </div>
+  <div class="container">
 <dl class="row">
     <dt class="col-sm-3">Why?</dt>
     <dd class="col-sm-9">I'm just bored</dd>
@@ -50,6 +53,7 @@ $users->login("Zasser", "11221348Was");
     <dd class="col-sm-9">
         If you insist, I'll tell you: I like money.</dd>
 </dl>
+</div>
 <?php
 require __DIR__ . '/assets/html/footer.html';
 ?>
