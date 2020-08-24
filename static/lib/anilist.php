@@ -69,7 +69,6 @@ class AniList
             ]);
             $this->anime = json_decode($response->getBody(), true);
             $this->cacheAnime();
-            return "non cache";
         }
     }
 
@@ -184,12 +183,12 @@ class AniList
             $query->where(['ID_Mal' => $this->id]);
             $query->from('AnimeCache');
             if (count(explode(", ",$query->execute()->fetchAll()[0][0]))) {
-                return ($query->execute()->fetchAll()[0][0] === "" ? 0 : 1);
+                return ($query->execute()->fetchAll()[0][0] === "" ? 0 : count(explode(", ",$query->execute()->fetchAll()[0][0])));
             }
         } else {
             if (count($this->anime['data']['Media']['tags']) >= 1)
             {
-                return ($query->execute()->fetchAll()[0][0] === "" ? 0 : 1);
+                return ($this->anime['data']['Media']['tags'][0] === "" ? 0 : count($this->anime['data']['Media']['tags']));
             }
         }
     }
@@ -237,3 +236,4 @@ class AniList
         }
     }
 }
+?>

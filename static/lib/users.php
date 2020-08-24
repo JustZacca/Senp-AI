@@ -188,7 +188,7 @@ class users
     }
     public function Already_Seen($ID)
     {
-        if (file_exists($this->path.$this->UID."_List.json")) {
+        if (file_exists($this->path.$this->UID."_List.json") && $this->suggestCount() !=0) {
             return in_array($ID, array_merge(json_decode(file_get_contents($this->path.$this->UID."_ID.json"), true), json_decode(file_get_contents($this->path.$this->UID."_List.json"), true)));
         } else {
             return in_array($ID, json_decode(file_get_contents($this->path.$this->UID."_ID.json"), true));
@@ -251,13 +251,11 @@ class users
     public function SaveList($list, $f)
     {
         $filename =  $this->path.$this->UID."_List.json";
-        if (file_exists($filename) && $f ) {
-            
-                $ob = file_get_contents($filename);
-                $json = json_decode($ob, true);
-                $merge = array_merge($json, $list);
-                file_put_contents($filename, json_encode($merge));
-            
+        if (file_exists($filename) && $f && $this->suggestCount() !=0) {
+            $ob = file_get_contents($filename);
+            $json = json_decode($ob, true);
+            $merge = array_merge($json, $list);
+            file_put_contents($filename, json_encode($merge));
         } else {
             file_put_contents($filename, json_encode($list));
         }
@@ -274,7 +272,6 @@ class users
                 unset($json[$arrid]);
                 $out = array_values($json);
                 file_put_contents($filename, json_encode($out));
-                exit();
             }
         }
     }
@@ -299,8 +296,14 @@ class users
             $json = json_decode($ob, true);
             $merge = array_merge($json, $id);
             file_put_contents($filename, json_encode($merge));
+            $this->ID_List();
             $this->deleteFromList($anid);
+            return true;
+            exit();
         } catch (Exception $var) {
+            exit();
         }
+        exit();
     }
 }
+?>

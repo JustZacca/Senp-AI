@@ -53,7 +53,7 @@ class AI
             try {
                 $list[$i]["ID"] =  $this->ILoveYou();
             } catch (Exception $var) {
-                return "Errore dio merda";
+                return $var;
             }
         }
         return $list;
@@ -73,3 +73,4 @@ class AI
         return $score*100;
     }
 }
+?>

@@ -1,12 +1,12 @@
 <?php
-ini_set('display_errors', 1);
+/*ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL); */
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/static/Autoloader.php';
 $users = new Users();
 $users->login("Zasser", "11221348Was");
-
+ob_start();
 
 $action = ($_SERVER['REQUEST_METHOD'] === 'POST') ? $_POST['action'] : $_GET['action'];
 switch ($action) {
