@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo'<tr>
       <th scope="row">'.$res->getMalId().'</th>
       <td><a href="single_check.php?ID='.$res->getMalId().'">'.$res->getTitle().'</a></td>
-      <td><img src="'.$res->getImageUrl().'" alt="..." width="150px" ></td>
+      <td><img class ="card-img-top-ani" src="'.$res->getImageUrl().'" alt="..." width="150px" ></td>
       <td>'.$res->getSynopsis().'</td>
     </tr>';
     } ?>

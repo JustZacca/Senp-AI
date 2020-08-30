@@ -5,6 +5,9 @@
     }
     .card-ani {
         width: 15rem;
+	}
+	.card-img-top-ani{
+        width:9em;
     }
 }
 

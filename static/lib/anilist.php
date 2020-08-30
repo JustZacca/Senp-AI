@@ -50,6 +50,9 @@ class AniList
                 coverImage {
                     large
                 }
+                trailer {
+                    site
+                }
             }
             }
             ';
@@ -76,7 +79,7 @@ class AniList
         try {
             $this->connection->insert(
                 'AnimeCache',
-                ['ID_Mal' => $this->getID(), 'Titolo' => $this->getTitle(), 'Tags' => $this->getTags(), 'Genere' => $this->getGenere(), 'IMG' =>$this->getIMG(), 'Source' =>$this->getSource(),'Format' => $this->getFormat(), 'Synopsis' => $this->jani->getSynopsis(), 'Trailer' => $this->jani->getTrailerUrl()]
+                ['ID_Mal' => $this->getID(), 'Titolo' => $this->getTitle(), 'Tags' => $this->getTags(), 'Genere' => $this->getGenere(), 'IMG' =>$this->getIMG(), 'Source' =>$this->getSource(),'Format' => $this->getFormat(), 'Synopsis' => $this->jani->getSynopsis(), 'Trailer' => $this->getTrailer()]
             );
             return true;
         } catch (Exception $var) {
@@ -342,8 +345,13 @@ class AniList
             $query->from('AnimeCache');
             return $query->execute()->fetchAll()[0][0];
         } else {
-            return $this->jani->getTrailerUrl();
+            $trailer = $this->jani->getTrailerUrl();
+            return $trailer != "" ? $trailer : $this->anime['data']['Media']['trailer']['site'] ;
         }
+    }
+    public function test()
+    {
+        return $this->anime['data']['Media']['trailer']['site'];
     }
 }
 ?>
