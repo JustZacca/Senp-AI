@@ -13,6 +13,7 @@ class users
     public $filepath;
     public $jikan;
     public $path = "/var/www/html/static/files/";
+    public $assets = "/var/www/html/assets/img/";
     public function __construct()
     {
         $this->driver = new Mysql([
@@ -305,5 +306,36 @@ class users
         }
         exit();
     }
+    function getImagesFromDir($status) {
+        $images = array();
+        switch ($status) {
+            case 2:
+                $dir = "yes";
+            break;
+            case 4:
+                $dir = "not";
+            break;
+            case 404:
+                $dir = "404";
+            break;
+        }
+        if ( $img_dir = @opendir($this->assets.$dir) ) {
+            while ( false !== ($img_file = readdir($img_dir)) ) {
+                // checks for gif, jpg, png
+                if ( preg_match("/(\.gif|\.jpg|\.png)$/", $img_file) ) {
+                    $images[] = $img_file;
+                }
+            }
+            closedir($img_dir);
+        }
+        return $images;
+    }
+    
+    function getRandomFromArray($ar) {
+        $num = array_rand($ar);
+        return $ar[$num];
+    }
+
+    
 }
 ?>

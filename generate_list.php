@@ -20,6 +20,10 @@ $users->login("Zasser", "11221348Was");
             Use this utility to generate your suggest list: apply some filters, otherwise the AI will suggest anything,
             even Hentai or strange stuff</p>
     </div>
+    <div class="text-center">
+  <img src="./assets/img/list-1.gif"  class="img-fluid" alt="...">  
+  <br>
+</div>
 </div>
 
 <?php

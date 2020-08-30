@@ -76,7 +76,7 @@ class AniList
         try {
             $this->connection->insert(
                 'AnimeCache',
-                ['ID_Mal' => $this->getID(), 'Titolo' => $this->getTitle(), 'Tags' => $this->getTags(), 'Genere' => $this->getGenere(), 'IMG' =>$this->getIMG(), 'Source' =>$this->getSource(),'Format' => $this->getFormat()]
+                ['ID_Mal' => $this->getID(), 'Titolo' => $this->getTitle(), 'Tags' => $this->getTags(), 'Genere' => $this->getGenere(), 'IMG' =>$this->getIMG(), 'Source' =>$this->getSource(),'Format' => $this->getFormat(), 'Synopsis' => $this->jani->getSynopsis(), 'Trailer' => $this->jani->getTrailerUrl()]
             );
             return true;
         } catch (Exception $var) {
@@ -109,6 +109,20 @@ class AniList
             }
         }
     }
+
+    public function getSynopsis()
+    {
+        if ($this->isincache()) {
+            $query = $this->connection->newQuery();
+            $query->select(['Synopsis']);
+            $query->where(['ID_Mal' => $this->id]);
+            $query->from('AnimeCache');
+            return $query->execute()->fetchAll()[0][0];
+        } else {
+            return $this->jani->getSynopsis();
+        }
+    }
+
     public function getID()
     {
         return $this->id;
@@ -317,6 +331,19 @@ class AniList
     public function jikanSearch($title)
     {
         return $this->jani = $this->jikan->AnimeSearch($title);
+    }
+
+    public function getTrailer()
+    {
+        if ($this->isincache()) {
+            $query = $this->connection->newQuery();
+            $query->select(['Trailer']);
+            $query->where(['ID_Mal' => $this->id]);
+            $query->from('AnimeCache');
+            return $query->execute()->fetchAll()[0][0];
+        } else {
+            return $this->jani->getTrailerUrl();
+        }
     }
 }
 ?>

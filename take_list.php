@@ -40,7 +40,7 @@ switch ($action) {
         break;
     case 6:
         $users->CorrectAI($_GET['status'],$_GET['ID']);
-        header("Location: list_tools.php");
+        header("Location: list_tools.php?status=".$_GET['status']);
         die();
         break;
 }

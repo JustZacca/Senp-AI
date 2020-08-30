@@ -40,7 +40,7 @@ class AI
     public function ILoveYou()
     {
         $id = $this->user->randAnime();
-        if ($this->SingleMatch($id) == "Completed") {
+        if ($this->SingleMatch($id) == "Completed" | $this->SingleMatch($id) == "Watching" | $this->SingleMatch($id) == "Plan to Watch" ) {
             return $id;
         } else {
             return $this->ILoveYou();

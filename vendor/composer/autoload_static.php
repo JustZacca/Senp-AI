@@ -49,6 +49,7 @@ class ComposerStaticInitc5d114a149a01262bdfe7864a9be43c9
         '888e1afeed2e8d13ef5a662692091e6e' => __DIR__ . '/..' . '/amphp/parallel/lib/Sync/functions.php',
         '384cf4f2eb4d2f896db72315a76066ad' => __DIR__ . '/..' . '/amphp/parallel/lib/Worker/functions.php',
         '34122c0574b76bf21c9a8db62b5b9cf3' => __DIR__ . '/..' . '/cakephp/chronos/src/carbon_compat.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '8f758069bf9eb3411d096c10be343745' => __DIR__ . '/..' . '/rubix/tensor/src/constants.php',
         'c720f792236cd163ece8049879166850' => __DIR__ . '/..' . '/cakephp/cakephp/src/Core/functions.php',
         'ede59e3a405fb689cd1cebb7bb1db3fb' => __DIR__ . '/..' . '/cakephp/cakephp/src/Collection/functions.php',
@@ -60,6 +61,10 @@ class ComposerStaticInitc5d114a149a01262bdfe7864a9be43c9
     );
 
     public static $prefixLengthsPsr4 = array (
+        's' => 
+        array (
+            'setasign\\Fpdi\\' => 14,
+        ),
         'Z' => 
         array (
             'Zend\\Validator\\' => 15,
@@ -115,6 +120,7 @@ class ComposerStaticInitc5d114a149a01262bdfe7864a9be43c9
         ),
         'M' => 
         array (
+            'Mpdf\\' => 5,
             'Metadata\\' => 9,
         ),
         'L' => 
@@ -168,6 +174,7 @@ class ComposerStaticInitc5d114a149a01262bdfe7864a9be43c9
             'Doctrine\\Common\\Lexer\\' => 22,
             'Doctrine\\Common\\Inflector\\' => 26,
             'Doctrine\\Common\\Annotations\\' => 28,
+            'DeepCopy\\' => 9,
         ),
         'C' => 
         array (
@@ -189,6 +196,10 @@ class ComposerStaticInitc5d114a149a01262bdfe7864a9be43c9
     );
 
     public static $prefixDirsPsr4 = array (
+        'setasign\\Fpdi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/setasign/fpdi/src',
+        ),
         'Zend\\Validator\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-validator/src',
@@ -343,6 +354,10 @@ class ComposerStaticInitc5d114a149a01262bdfe7864a9be43c9
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'Mpdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
+        ),
         'Metadata\\' => 
         array (
             0 => __DIR__ . '/..' . '/jms/metadata/src',
@@ -482,6 +497,10 @@ class ComposerStaticInitc5d114a149a01262bdfe7864a9be43c9
         'Doctrine\\Common\\Annotations\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
+        ),
+        'DeepCopy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
         'Composer\\CaBundle\\' => 
         array (
