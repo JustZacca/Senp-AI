@@ -12,8 +12,20 @@ require __DIR__ . '/assets/html/menu.html';
 $users = new Users();
 $ani = new AniList();
 $jikan = new Jikan;
+set_error_handler(function($errno, $errstr, $errfile, $errline, $errcontext) {
+    // error was suppressed with the @-operator
+    if (0 === error_reporting()) {
+        return false;
+    }
+
+    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+});
+
 $users->login("Zasser", "11221348Was");
 ?>
+<div class="container ">
+    <div class="row">
+        <div class="col-md-12">
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">AI-Tools</a></li>
@@ -27,8 +39,13 @@ $users->login("Zasser", "11221348Was");
             This section is for managing your list.</p>
     </div>
 </div>
-
+</div>
+</div>
+<div class="row">
+        <div class="col-md-12 table-responsive">
+    <table class="table table-bordered table-dark table-resposnive">
 <?php
+try {
 if (file_exists($users->suggestList()) && $users->suggestCount() != 0 && ($_SERVER['REQUEST_METHOD'] == 'GET' && empty($_GET['print']))) {
     if ($_SERVER['REQUEST_METHOD'] == 'GET' && !empty($_GET['status'])) {
         if ($_GET['status']==4) {
@@ -70,9 +87,7 @@ if (file_exists($users->suggestList()) && $users->suggestCount() != 0 && ($_SERV
 </div>
 <?php
     } ?>
-<br>
-<div class="container">
-    <table class="table table-bordered table-dark">
+
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -92,7 +107,7 @@ if (file_exists($users->suggestList()) && $users->suggestCount() != 0 && ($_SERV
         $out .= '<tr>
         <th scope="row">'.$anime['ID'].'</th>
         <td><a href=single_check.php?ID='.$anime['ID'].' >'.$ani->getTitle().'</a></td>
-        <td><img src="'.$ani->getIMG().'" alt="..." ></td>
+        <td><img class="card-img-top card-img-top-ani" src="'.$ani->getIMG().'" alt="..." ></td>
         <td>'.$ani->getGenere().'</td>
 
         <td>'.$ani->getSynopsis().'</td>
@@ -131,17 +146,24 @@ if (file_exists($users->suggestList()) && $users->suggestCount() != 0 && ($_SERV
         $mpdf = new \Mpdf\Mpdf();
         $mpdf->WriteHTML($out);
         $mpdf->Output();
-    } else {
+    } }
+
+    //catch exception
+    catch(Exception $e) {
+
+    
         ?>
 <div class="alert alert-danger" role="alert">
 
     There is something wrong with your suggestion list. Are you sure you created it?
 
 </div>
-<div class="card mb-5">
+
     <img src="./assets/img/error.jpg" class="img-fluid" alt="Responsive image">
-</div>
 <?php
     }
+    ?>
+    </div>
+</div> <?php
 require __DIR__ . '/assets/html/footer.html';
 ?>
