@@ -1,7 +1,5 @@
 FROM php:7-apache
 
-RUN apt-get update \
-    &amp;&amp; apt-get install -y git
 RUN docker-php-ext-install pdo pdo_mysql mysqli
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY start-apache /usr/local/bin
