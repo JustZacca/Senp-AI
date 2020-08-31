@@ -1,27 +1,34 @@
 @media (min-width: 979px) {
 	body {
         margin-top:75px;
-        margin-bottom:55px;
     }
     .card-ani {
         width: 15rem;
 	}
 	.card-img-top-ani{
         width:9em;
-    }
+	}
+	.footer-dark {
+		margin-bottom:0px;
+		margin-top:55px;
+		bottom:0;
+	}
+	
 }
 
 @media (max-width: 978px) {
 	.container {
 	 padding:0;
 	 margin:0;
+	 padding-left:15px;
+	 padding-right:15px;
 	}
       
     body {
-        padding-left:15px;
-        padding-right:15px;
+        padding-left:0px;
+        padding-right:0px;
      padding-top:75px;
-     padding-bottom:50px;
+     padding-bottom:0px;
     }
   
   	.navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
@@ -68,5 +75,12 @@
     }
     .im404{
         width:22.5em;
-    }
+	}
+	
+	.footer-dark {
+		margin-bottom:0px;
+		margin-top:55px;
+		bottom:0;
+	}
+
 }

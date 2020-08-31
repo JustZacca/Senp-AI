@@ -37,7 +37,7 @@ if (file_exists($users->suggestList())) {
 
 
 
-        You can't use this section yet! Go to user and import your MAL, without this <b>Senp-AI</b> you will never know
+        You can't use this section yet! Go to user and import your MAL, without this <b>Senp-AI</b> will never know
         what
         to
         suggest!
@@ -52,12 +52,13 @@ if (file_exists($users->suggestList())) {
         Looks like you already have a list of suggestions. Use this section to regenerate or increase it. <br>MAX 20
         Elements per list.
     </div>
-    <div class="float-right">
+    <div class="float-right" style="padding-bottom:15px;">
         <a href="./list_tools.php">
-            <button type="button" class="btn btn-primary pull-right">
+            <button type="button" class="btn btn-primary pull-right" >
                 Current list <span class="badge badge-light"><?php echo $users->suggestCount() ?></span>
             </button>
         </a>
+        <br>
     </div>
     <br>
     <br>
@@ -68,7 +69,7 @@ if (file_exists($users->suggestList())) {
     <div class="alert alert-warning" role="alert">
 
 
-        You don't have any list, get ready to generate it! I hopw <b> Senp-AI</b> will do a good work! <br>MAX 20
+        You don't have any list, get ready to generate it! I hope <b> Senp-AI</b> will do a good work! <br>MAX 20
         Elements
         per list.
     </div>
@@ -229,6 +230,7 @@ if (file_exists($users->suggestList())) {
  
  </div>
     </div>
+    </div></div>
     <?php
 require __DIR__ . '/assets/html/footer.html';
 ?>

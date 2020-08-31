@@ -50,7 +50,7 @@ $users->login("Zasser", "11221348Was");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $res = $ani->jikanSearch($_POST['title'])->getResults(); ?>
     <div class="col-md-12">
-            <table class="table table-bordered table-dark table-resposnive">
+            <table class="table table-bordered table-resposnive">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
         </div>
-
+        </div>
         <?php
     }
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && !empty($_GET['ID'])) {
@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && !empty($_GET['ID'])) {
         
     }
     $rs = $AI->SingleMatch($_GET['ID']);
-    echo ' <div class="col-xl-3"><div class="card card-ani text-white bg-dark mb-3" >
+    echo ' <div class="col-xl-3"><div class="card card-ani text-white mb-3" >
     <div class="card-header">'.$ani->getTitle().'</div>
     <img class="card-img-top " src="'.$ani->getIMG().'" alt="Card image cap">
     <div class="card-body">';
@@ -156,10 +156,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && !empty($_GET['ID'])) {
         don't know how to do better, if you are a front-end do it for me</figcaption><?php
   echo '</figure>';
   }
-
+?>
+<?php
 }
 
 ?>
+</div></div></div></div></div></div>
         <?php
 require __DIR__ . '/assets/html/footer.html';
 ?>

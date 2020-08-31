@@ -345,13 +345,9 @@ class AniList
             $query->from('AnimeCache');
             return $query->execute()->fetchAll()[0][0];
         } else {
-            $trailer = $this->jani->getTrailerUrl();
-            return $trailer != "" ? $trailer : $this->anime['data']['Media']['trailer']['site'] ;
+            return $this->jani->getTrailerUrl();
         }
     }
-    public function test()
-    {
-        return $this->anime['data']['Media']['trailer']['site'];
-    }
+   
 }
 ?>

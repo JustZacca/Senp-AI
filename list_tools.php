@@ -43,7 +43,7 @@ $users->login("Zasser", "11221348Was");
 </div>
 <div class="row">
         <div class="col-md-12 table-responsive">
-    <table class="table table-bordered table-dark table-resposnive">
+    <table class="table table-bordered table-resposnive">
 <?php
 try {
 if (file_exists($users->suggestList()) && $users->suggestCount() != 0 && ($_SERVER['REQUEST_METHOD'] == 'GET' && empty($_GET['print']))) {

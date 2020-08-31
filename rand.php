@@ -35,22 +35,19 @@ $rs = $AI->SingleMatch($id);
         </div>
         <div class="row">
             <div class="col-md-6 col-xl-3">
-                <div class="card text-white bg-dark" style="height:100%;">
+                <div class="card text-white" style="height:100%;">
                     <div class="card-body">
                         <h4 class="card-title"><?php echo $ani->getTitle(); ?></h4>
                         <img class="card-img-top" src="<?php echo $ani->getIMG() ?>" alt="Card image cap">
                         <h6 class="text-muted card-subtitle mb-2"></h6>
                         <p class="card-text"><?php echo $ani->getTags();?></p>
-                        <?php 
-                        if($rs == 'Completed' | $rs == 'Watching')
-                        {
-                          echo '<div class="alert alert-success mx-auto " role="alert">
+                        <?php
+                        if ($rs == 'Completed' | $rs == 'Watching') {
+                            echo '<div class="alert alert-success mx-auto " role="alert">
                           '.$rs.'
                         </div>';
-                    
-                        }
-                        else{
-                          echo '<div class="alert alert-warning mx-auto " role="alert">
+                        } else {
+                            echo '<div class="alert alert-warning mx-auto " role="alert">
                           '.$rs.'
                         </div>';
                         }
@@ -59,22 +56,35 @@ $rs = $AI->SingleMatch($id);
                 </div>
             </div>
             <div class="col-md-6 col-xl-7">
+                <?php
+                if ($ani->getTrailer()!="") {
+                    ?>
                 <div class="video-container">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item"
-                            src="<?php echo $ani->getTrailer()!="" ? str_replace("autoplay=1", "autoplay=0", $ani->test()) : "./assets/img/404/".$users->getRandomFromArray($users->getImagesFromDir(404)) ?>"
+                        <iframe class="embed-responsive-item" src="<?php echo $ani->getTrailer() ?>"
                             allowfullscreen></iframe>
                     </div>
                 </div>
+                <?php
+                } else {
+                    echo '<img src="./assets/img/404/'.$users->getRandomFromArray($users->getImagesFromDir(404)).'"class="img-fluid" style="padding-bottom:15px;" alt="...">';
+                }
+            
+                ?>
                 <div class="btn-group" style="  margin-top: 25;"></div>
                 <div class="btn-toolbar">
-                    <div class="btn-group"><button class="btn btn-primary" type="button">Button 1</button>
-                        &nbsp;<button class="btn btn-primary" type="button">Button 2</button></div>
+                    <div class="btn-group">
+                        <button class="btn btn-primary" type="button">Button 1</button>
+                        &nbsp;
+                        <div class="float-right">
+                            <button class="btn btn-primary pull-right" type="button">Button 2</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-xl-2" style="height: 32em;">
-                <div class="card text-white bg-dark">
-                    <div class="card-body" style="height: 32em;">
+            <div class="col-xl-2">
+                <div class="card text-white" style="height:100%;">
+                    <div class="card-body">
                         <h4 class="card-title">Stats</h4>
                         <div role="alert" class="alert alert-success"><span><strong>Alert</strong> text.</span></div>
                         <div role="alert" class="alert alert-success"><span><strong>Alert</strong> text.</span></div>
