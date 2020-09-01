@@ -15,9 +15,9 @@ $users->login("Zasser", "11221348Was");
                     <li class="breadcrumb-item active" aria-current="page">Users</li>
                 </ol>
             </nav>
-            <div class="jumbotron jumbotron-fluid">
+            <div class="jumbotron jumbotron-fluid" style="padding-top:1em; padding-bottom:1em;">
                 <div class="container">
-                    <h1 class="display-4">User section</h1>
+                    <h4>User section</h4>
                     <p class="lead">
                         This server section for managing your profile and main list.</p>
                 </div>
@@ -29,7 +29,7 @@ $users->login("Zasser", "11221348Was");
         </div>
     </div>
     <div class="row">
-        <dvi class="col-md-6">
+        <div class="col-md-6">
             <p> Hi <?php  echo $users->getUsername()  ?> <br>Check that everything is ready:
                 <?php
   if ($users->listExist()) {
@@ -47,7 +47,12 @@ $users->login("Zasser", "11221348Was");
 
                 Your MAL is ready
             </div>
-            <a href="take_list.php?action=1"><button type="button" class="btn btn-primary">Delete list</button></a>
+            <a href="take_list.php?action=1"><button type="button" class="btn btn-danger"><svg width="1em" height="1em"
+                        viewBox="0 0 16 16" class="bi bi-person-lines-fill" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+                    </svg> Delete list</button></a>
             <?php
       }
   } else {
@@ -59,21 +64,26 @@ $users->login("Zasser", "11221348Was");
             <?php
   }
 ?>
+</div>
+    <div class="col-md-6">
+        <?php
+         if ($users->listExist()) {
+            if ($users->clistExist()) {
+                
+        echo "<p> Anime on your <b>MAL:</b> ".$users->malCount().
+                  "<br>Anime on your <a href='list_tools.php'>list</a>: ".$users->suggestCount()."";
+            }
+        }
+        ?>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-6">
 
     </div>
 </div>
-<div class="row">
-    <div class="col-md-6">
-
-    </div>
 </div>
 </div>
-
 <?php
 
 require __DIR__ . '/assets/html/footer.html';

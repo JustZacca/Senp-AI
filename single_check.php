@@ -1,4 +1,22 @@
 <?php
+//DO NOT DISPLAY ERRORS TO USER
+ini_set("display_errors", 0);
+ini_set("log_errors", 1);
+
+//Define where do you want the log to go, syslog or a file of your liking with
+ini_set("error_log", dirname(__FILE__).'/php_errors.log');
+
+register_shutdown_function(function(){
+    $last_error = error_get_last();
+    if ( !empty($last_error) && 
+         $last_error['type'] & (E_ERROR | E_COMPILE_ERROR | E_PARSE | E_CORE_ERROR | E_USER_ERROR)
+       )
+    {
+       require_once(dirname(__FILE__).'/505.php');
+       exit(1);
+    }
+});
+
 require __DIR__ . '/assets/html/head.html';
 set_time_limit(360);
 require __DIR__ . '/vendor/autoload.php';
@@ -12,13 +30,13 @@ $users->login("Zasser", "11221348Was");
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">AI-Tools</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Single Check</li>
-                    </ol>
-                </nav>
-                <br>
+            <div class="jumbotron jumbotron-fluid" style="padding-top:1em; padding-bottom:1em;">
+                <div class="container">
+                    <h4>Single Check</h4>
+                    <p class="lead">
+                        Use this to search an anime and see the prediction of Senp-AI</p>
+                </div>
+            </div>
                 <div class="alert alert-primary" role="alert">
                     Use this section to search an Anime and ask to <b>Senp-AI</b> a wisdom about it!
                 </div>
@@ -64,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     foreach ($res as $res) {
         echo'<tr>
       <th scope="row">'.$res->getMalId().'</th>
-      <td><a href="single_check.php?ID='.$res->getMalId().'">'.$res->getTitle().'</a></td>
+      <td><a href="rand.php?ID='.$res->getMalId().'">'.$res->getTitle().'</a></td>
       <td><img class ="card-img-top-ani" src="'.$res->getImageUrl().'" alt="..." width="150px" ></td>
       <td>'.$res->getSynopsis().'</td>
     </tr>';

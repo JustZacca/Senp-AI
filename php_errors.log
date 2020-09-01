@@ -1,0 +1,163 @@
+[01-Sep-2020 15:14:55 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:14:55 UTC] PHP Warning:  require_once(/var/www/html/public_html/maintenance.php): failed to open stream: No such file or directory in /var/www/html/rand.php on line 15
+[01-Sep-2020 15:14:55 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/html/public_html/maintenance.php' (include_path='.:/usr/share/php') in /var/www/html/rand.php on line 15
+[01-Sep-2020 15:15:10 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:15:10 UTC] PHP Warning:  require_once(/var/www/html/public_html/maintenance.php): failed to open stream: No such file or directory in /var/www/html/rand.php on line 15
+[01-Sep-2020 15:15:10 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/html/public_html/maintenance.php' (include_path='.:/usr/share/php') in /var/www/html/rand.php on line 15
+[01-Sep-2020 15:16:04 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:21:53 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:22:43 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:26:06 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:27:34 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:29:04 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:29:21 UTC] PHP Notice:  Undefined index: ID in /var/www/html/rand.php on line 31
+[01-Sep-2020 15:29:23 UTC] PHP Notice:  Undefined index: ID in /var/www/html/rand.php on line 46
+[01-Sep-2020 15:29:35 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:31:50 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:33:59 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:35:03 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:36:36 UTC] PHP Notice:  Undefined index: ID in /var/www/html/rand.php on line 31
+[01-Sep-2020 15:36:37 UTC] PHP Notice:  Undefined index: ID in /var/www/html/rand.php on line 46
+[01-Sep-2020 15:36:48 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:41:34 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:44:29 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:45:23 UTC] PHP Notice:  Undefined index: ID in /var/www/html/rand.php on line 31
+[01-Sep-2020 15:45:27 UTC] PHP Notice:  Undefined index: ID in /var/www/html/rand.php on line 46
+[01-Sep-2020 15:45:37 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113
+[01-Sep-2020 15:55:39 UTC] PHP Fatal error:  Uncaught GuzzleHttp\Exception\ClientException: Client error: `POST https://graphql.anilist.co` resulted in a `404 Not Found` response:
+{"errors":[{"message":"Not Found.","status":404,"locations":[{"line":3,"column":13}]}],"data":{"Media":null}}
+ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:113
+Stack trace:
+#0 /var/www/html/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /var/www/html/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 /var/www/html/vendor/guzzlehttp/promises/src/Promise.php(246): GuzzleHttp\Promise\ in /var/www/html/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 113

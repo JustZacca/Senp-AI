@@ -199,6 +199,10 @@ class users
     {
         return count(json_decode(file_get_contents($this->suggestList()), true));
     }
+    public function malCount()
+    {
+        return count(json_decode(file_get_contents($this->userList()), true));
+    }
 
     public function Status($id)
     {

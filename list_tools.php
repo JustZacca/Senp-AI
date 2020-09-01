@@ -1,7 +1,22 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+//DO NOT DISPLAY ERRORS TO USER
+ini_set("display_errors", 0);
+ini_set("log_errors", 1);
+
+//Define where do you want the log to go, syslog or a file of your liking with
+ini_set("error_log", dirname(__FILE__).'/php_errors.log');
+
+register_shutdown_function(function(){
+    $last_error = error_get_last();
+    if ( !empty($last_error) && 
+         $last_error['type'] & (E_ERROR | E_COMPILE_ERROR | E_PARSE | E_CORE_ERROR | E_USER_ERROR)
+       )
+    {
+       require_once(dirname(__FILE__).'/505.php');
+       exit(1);
+    }
+});
+
 use Jikan\Jikan;
 
 require __DIR__ . '/assets/html/head.html';
@@ -32,9 +47,9 @@ $users->login("Zasser", "11221348Was");
         <li class="breadcrumb-item active" aria-current="page">Single Check</li>
     </ol>
 </nav>
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid" style="padding-top:1em; padding-bottom:1em;">
     <div class="container">
-        <h1 class="display-4">List tools</h1>
+        <h4 >List tools</h4>
         <p class="lead">
             This section is for managing your list.</p>
     </div>
@@ -106,7 +121,7 @@ if (file_exists($users->suggestList()) && $users->suggestCount() != 0 && ($_SERV
         $ani->query($anime['ID']);
         $out .= '<tr>
         <th scope="row">'.$anime['ID'].'</th>
-        <td><a href=single_check.php?ID='.$anime['ID'].' >'.$ani->getTitle().'</a></td>
+        <td><a href=rand.php?ID='.$anime['ID'].' >'.$ani->getTitle().'</a></td>
         <td><img class="card-img-top card-img-top-ani" src="'.$ani->getIMG().'" alt="..." ></td>
         <td>'.$ani->getGenere().'</td>
 
