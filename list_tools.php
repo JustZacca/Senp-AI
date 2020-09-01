@@ -175,6 +175,8 @@ if (file_exists($users->suggestList()) && $users->suggestCount() != 0 && ($_SERV
 </div>
 
     <img src="./assets/img/error.jpg" class="img-fluid" alt="Responsive image">
+    </div>
+    </div>
 <?php
     }
     ?>

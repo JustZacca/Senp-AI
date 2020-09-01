@@ -190,7 +190,7 @@ class users
     public function Already_Seen($ID)
     {
         if (file_exists($this->path.$this->UID."_List.json") && $this->suggestCount() !=0) {
-            return in_array($ID, array_merge(json_decode(file_get_contents($this->path.$this->UID."_ID.json"), true), json_decode(file_get_contents($this->path.$this->UID."_List.json"), true)));
+            return in_array($ID, json_decode(file_get_contents($this->path.$this->UID."_ID.json"), true)) | $this->inList($ID);
         } else {
             return in_array($ID, json_decode(file_get_contents($this->path.$this->UID."_ID.json"), true));
         }
@@ -340,6 +340,34 @@ class users
         return $ar[$num];
     }
 
+    public function addList($id)
+    {
+        $list[0]['ID'] = $id;
+        $filename =  $this->path.$this->UID."_List.json";
+        if (file_exists($filename) && $this->suggestCount() !=0) {
+            $ob = file_get_contents($filename);
+            $json = json_decode($ob, true);
+            $merge = array_merge($json, $list);
+            $merge = array_values($merge);
+            file_put_contents($filename, json_encode($merge));
+        } else {
+            file_put_contents($filename, json_encode($list));
+        }
+    }
+    
+    public function inList($id)
+    {
+        $filename =  $this->path.$this->UID."_List.json";
+
+        $ob = file_get_contents($filename);
+        $json = json_decode($ob, true);
+        foreach ($json as $arrid => $ani) {
+            if ($ani['ID'] == $id) {
+                return true;
+            }
+        }
+        return false;
+    }
     
 }
 ?>
